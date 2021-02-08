@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;700&display=swap" rel="stylesheet"> 
+        <style>
+            *{
+                font-family:"Cabin", Cabin, Helvetica, Arial, sans-serif;
+            }
+            html{
+                border-radius:15px;
+            }
+            body{
+                padding:0; margin:0;
+                height:200px;
+                width:225px;
+                position:relative;
+                display:flex;
+                flex-direction:column;
+                background:white;
+                border-radius:15px;
+            }
+            .save{
+                background:#32A852;
+                border:2px solid #3dba5f;
+                border-top:3px solid #60e083;
+            }
+            .save:hover{
+                background:#3dba5f;
+            }
+            .thinking{
+                width:12px;
+                animation: spin 2.5s linear infinite;
+            }
+            @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+            button {
+                padding:6px 17px;
+                outline: none;
+                color:white;
+                background:#1C7293;
+                font-weight:bold;
+                border-radius:8px;
+                border:2px solid #227FA3;
+                border-top:3px solid #49A8CC;
+                box-shadow: 0px 5px 7px 1px rgba(0,0,0,0.15);
+                transition:background 0.2s ease;
+            }
+            button:hover{
+                cursor:pointer;
+                background:#227FA3;
+            }
+            label{
+                color:black;
+            }
+            .content{
+                padding:10px 15px;
+            }
+            .setting{
+                display:flex;
+                flex-direction:row;
+                align-items:center;
+                justify-content: space-between;
+                padding:7px 0 7px 0;
+                border-bottom:3px solid #1E1E24;
+            }
+            .header{
+                background:#1E1E24;
+                padding:6px 10px;
+                display:flex;
+                justify-content: flex-start;
+                align-items:center;
+                flex-direction:row;
+            }
+            .header img{ width:38px; }
+            .header h1{ font-size:20px; color:white; }
+            #mirrorTheme{max-width:110px; overflow:hidden;}
+            select:focus{outline:none;}
+            
+            .slider{-webkit-appearance:none;width:100%;height:2px;border-radius:5px;background:rgba(0,0,0,0.2);outline:0;opacity:.7;-webkit-transition:.2s;transition:opacity .2s}
+            .slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:#1C7293;cursor:pointer;border:1px solid #A1CDF4;}
+            
+            .switch{position:relative;display:inline-block;width:38px;height:22px;margin:5px 0}.switch input{opacity:0;width:0;height:0}.slider_cb{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;-webkit-transition:.4s;transition:.4s}.slider_cb:before{position:absolute;content:"";height:20px;width:20px;left:1px;bottom:1px;background-color:#fff;-webkit-transition:.4s;transition:.4s}input:checked+.slider_cb{background-color:#2196f3}input:focus+.slider_cb{box-shadow:0 0 1px #2196f3}input:checked+.slider_cb:before{transform:translateX(16px)}.slider_cb.round{border-radius:34px}.slider_cb.round:before{border-radius:50%}
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img src="images/logo48.png" alt/>
+            <h1>&nbsp;&nbsp;CF Fusion</h1>
+        </div>
+        <div class="content">
+            <div class="setting">
+                <label for="saveCFpage">Save Page</label>
+                <button id="saveCFpage" onclick="think(this)" class="save">Save</button>
+            </div>
+            <div class="setting">
+                <label for="previewCFpage">Preview Page</label>
+                <button id="previewCFpage" onclick="think(this)">Preview</button>
+            </div>
+            <div class="setting">
+                <label>Show extra element tools</label>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider_cb round"></span>
+                </label>
+            </div>
+            <div class="setting">
+                <label>Code Editor Height</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="1" class="slider" id="CodeEditorHeight">
+                </div>
+            </div>
+            <div class="setting">
+                <p>Code Editor Theme: </p>
+                <select id="mirrorTheme">
+                    <option selected="">pastel-on-dark</option>
+                    <option>3024-day</option>
+                    <option>3024-night</option>
+                    <option>abcdef</option>
+                    <option>ambiance</option>
+                    <option>ayu-dark</option>
+                    <option>ayu-mirage</option>
+                    <option>base16-dark</option>
+                    <option>base16-light</option>
+                    <option>bespin</option>
+                    <option>blackboard</option>
+                    <option>cobalt</option>
+                    <option>colorforth</option>
+                    <option>darcula</option>
+                    <option>dracula</option>
+                    <option>duotone-dark</option>
+                    <option>duotone-light</option>
+                    <option>eclipse</option>
+                    <option>elegant</option>
+                    <option>erlang-dark</option>
+                    <option>gruvbox-dark</option>
+                    <option>hopscotch</option>
+                    <option>icecoder</option>
+                    <option>idea</option>
+                    <option>isotope</option>
+                    <option>lesser-dark</option>
+                    <option>liquibyte</option>
+                    <option>lucario</option>
+                    <option>material</option>
+                    <option>material-darker</option>
+                    <option>material-palenight</option>
+                    <option>material-ocean</option>
+                    <option>mbo</option>
+                    <option>mdn-like</option>
+                    <option>midnight</option>
+                    <option>monokai</option>
+                    <option>moxer</option>
+                    <option>neat</option>
+                    <option>neo</option>
+                    <option>night</option>
+                    <option>nord</option>
+                    <option>oceanic-next</option>
+                    <option>panda-syntax</option>
+                    <option>paraiso-dark</option>
+                    <option>paraiso-light</option>
+                    <option>pastel-on-dark</option>
+                    <option>railscasts</option>
+                    <option>rubyblue</option>
+                    <option>seti</option>
+                    <option>shadowfox</option>
+                    <option>solarized</option>
+                    <option>the-matrix</option>
+                    <option>tomorrow-night-bright</option>
+                    <option>tomorrow-night-eighties</option>
+                    <option>ttcn</option>
+                    <option>twilight</option>
+                    <option>vibrant-ink</option>
+                    <option>xq-dark</option>
+                    <option>xq-light</option>
+                    <option>yeti</option>
+                    <option>yonce</option>
+                    <option>zenburn</option>
+                </select>
+            </div>
+        </div>
+        <script src="popup.js"></script>
+    </body>
+</html>
