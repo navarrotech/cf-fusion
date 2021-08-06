@@ -5,7 +5,7 @@
   "permissions": ["activeTab", "declarativeContent", "storage","tabs", "http://*.clickfunnels.com/pages/*"],
   "background": {
     "scripts": ["main.js"],
-    "persistent": false
+    "persistent": true
   },
   "options_page": "options.html",
   "page_action": {

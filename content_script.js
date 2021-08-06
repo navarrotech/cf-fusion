@@ -197,8 +197,8 @@ custCodeSettingsBtn.forEach(el => {
         }, 100)
     })
 });
-document.querySelector(".editorTopNavItem[data-editor=css]").addEventListener('click', function(){updateMirrorTheme();});
-document.querySelector(".editorTopNavItem[data-editor=tracking]").addEventListener('click', function(){updateMirrorTheme();});
+document.querySelector(".editorTopNavItem[data-editor=css]").addEventListener('click', function(){ updateMirrorTheme() });
+document.querySelector(".editorTopNavItem[data-editor=tracking]").addEventListener('click', function(){ updateMirrorTheme() });
 var activeMirrorView, mirror_firstinit=false;
 function updateMirrorTheme(){
     let theme = document.querySelector('.modalBackdropWrapper').getAttribute('fs-fusion-code-theme') || "pastel-on-dark";
@@ -207,11 +207,17 @@ function updateMirrorTheme(){
             el.className=`CodeMirror cm-s-${theme} CodeMirror-wrap`;
         });
     }, 50);
+    if(theme !== activeMirrorView){
+        mirror_firstinit = false;
+    }
     if(!mirror_firstinit){
         let A = document.createElement("link")
         A.setAttribute("rel", "stylesheet");
         A.setAttribute("href", "https://master.d2rgdk1u6tmmqm.amplifyapp.com/web/mooch/codemirror-themes/" + theme + ".css");
         document.head.appendChild(A);
+        console.log("Added new stylesheet! :)")
+        mirror_firstinit = true;
+        activeMirrorView = theme;
     }
 }
 
